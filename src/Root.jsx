@@ -14,15 +14,8 @@ export default function Root() {
                             type="search"
                             name="q"
                         />
-                        <div
-                            id="search-spinner"
-                            aria-hidden
-                            hidden={true}
-                        />
-                        <div
-                            className="sr-only"
-                            aria-live="polite"
-                        ></div>
+                        <div id="search-spinner" aria-hidden hidden={true} />
+                        <div className="sr-only" aria-live="polite"></div>
                     </form>
                     <form method="post">
                         <button type="submit">New</button>
@@ -31,10 +24,10 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li>
-                            <Link href={`/contacts/1`}>Your Name</Link>
+                            <Link to={`/contacts/1`}>Your Name</Link>
                         </li>
                         <li>
-                            <Link href={`/contacts/2`}>Your Friend</Link>
+                            <Link to={`/contacts/2`}>Your Friend</Link>
                         </li>
                     </ul>
                 </nav>
