@@ -5,6 +5,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Root from './Root'
 import ErrorPage from './Error'
 import Contact from './Contact'
+import { getContactLoader, getContactsLoader, } from './loaders/contactsLoader'
+import { createContactAction, editContactAction } from './actions/contactsActions'
+import EditContact from './Edit/EditContact'
 
 
 const router = createBrowserRouter([
@@ -12,10 +15,19 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: getContactsLoader,
+    action: createContactAction,
     children: [
       {
         path: "contacts/:contactId",
-        element: <Contact />
+        element: <Contact />,
+        loader: getContactLoader
+      },
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: getContactLoader,
+        action: editContactAction
       },
     ]
   },
